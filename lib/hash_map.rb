@@ -62,7 +62,20 @@ class HashMap
   end
 
   def keys
-    k = @bucket.map {|pair| pair.key unless pair.nil?}
+    k = []
+    @bucket.map {|pair| k << pair.key unless pair.nil?}
     return k
+  end
+
+  def values
+    v = []
+    @bucket.map {|pair| v << pair.value unless pair.nil?}
+    return v
+  end
+
+  def entries
+    arr = []
+    @bucket.map {|pair| arr << [pair.key, pair.value] unless pair.nil?}
+    return arr
   end
 end

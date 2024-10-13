@@ -24,3 +24,5 @@ a.set('lion', 'golden')
 p a.length()
 #a.clear()
 p a.keys
+p a.values
+p a.entries
