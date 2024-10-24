@@ -3,6 +3,15 @@ require_relative "node.rb"
 class HashMap
   def initialize
     @bucket = Array.new(16)
+    @capacity = @bucket.length
+    load()
+  end
+
+  def load
+    load = self.length/@bucket.length
+    if load >= 0.75
+      
+    end
   end
 
   def get_index(key)
@@ -20,6 +29,7 @@ class HashMap
 
   def set(key, value)
     index = get_index(key)
+    raise IndexError if index.negative? || index >= @bucket.length
     @bucket[index] = Node.new(key, value)
     @bucket
   end
